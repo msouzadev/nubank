@@ -43,11 +43,11 @@ export default function Main() {
         offset = 0;
       }
       Animated.timing(translateY, {
-        toValue: opened ? 380 : 0,
+        toValue: opened ? 520 : 0,
         duration: 200,
         useNativeDriver: true,
       }).start(() => {
-        offset = opened ? 380 : 0;
+        offset = opened ? 520 : 0;
         translateY.setOffset(offset);
         translateY.setValue(0);
       });
@@ -67,8 +67,8 @@ export default function Main() {
               transform: [
                 {
                   translateY: translateY.interpolate({
-                    inputRange: [-250, 0, 380],
-                    outputRange: [-50, 0, 380],
+                    inputRange: [-250, 0, 520],
+                    outputRange: [-50, 0, 520],
                     extrapolate: 'clamp',
                   }),
                 },

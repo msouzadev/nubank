@@ -3,7 +3,7 @@ import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {Animated} from 'react-native';
 export const Container = styled.View`
   flex: 1;
-  background-color: #8b10ae;
+  background: #8b05be;
   padding-top: ${getStatusBarHeight()}px;
 `;
 
