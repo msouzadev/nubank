@@ -4,15 +4,16 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
-  Container, TabsContainer, TabItem, TabText
+  Container, TabsContainer, TabItem, TabText,
 } from './styles';
 import IndicateFriend from '~/pages/IndicateFriend';
-import ToCharge from '~/pages/ToCharge'
-  ;
+import ToCharge from '~/pages/ToCharge';
+import Deposit from '~/pages/Deposit';
+
 export default function Tabs({ translateY, tabs = [] }) {
   const [modalOpen, setOpen] = useState(false);
   const [tabsNav, setTabs] = useState(tabs);
-  const [tabOpened, setTabOpen] = useState('to-charge');
+  const [tabOpened, setTabOpen] = useState('deposit');
 
   function renderTabContent(tabOpened) {
     switch (tabOpened) {
@@ -20,6 +21,8 @@ export default function Tabs({ translateY, tabs = [] }) {
         return <IndicateFriend onClose={() => setTabOpen('')} />;
       case 'to-charge':
         return <ToCharge onClose={() => setTabOpen('')} />;
+      case 'deposit':
+        return <Deposit onClose={() => setTabOpen('')} />;
       default:
         return null;
     }
