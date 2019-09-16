@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
-
+import React, {useState} from 'react';
+import {View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Brands from 'react-native-vector-icons/FontAwesome5';
 
@@ -23,34 +23,54 @@ import {
   EmailBadgeText,
 } from './styles';
 
-export default function IndicateFriend({ onClose }) {
+export default function IndicateFriend({onClose}) {
   const [open, setOpen] = useState(true);
   return (
     <Container
       animationType="slide"
       transparent={open}
       visible={open}
-      onRequestClose={() => { onClose && onClose(); setOpen(false); }}
-    >
-      <CloseModalContainer onPress={() => { onClose && onClose(); setOpen(false) }}>
-        <CloseModalView style={{ flex: 1, backgroundColor: '#222', opacity: 0.3 }} />
+      onRequestClose={() => {
+        onClose && onClose();
+        setOpen(false);
+      }}>
+      <CloseModalContainer
+        onPress={() => {
+          onClose && onClose();
+          setOpen(false);
+        }}>
+        <CloseModalView
+          style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
+        />
       </CloseModalContainer>
-      <View style={{ flex: 9, backgroundColor: '#FFF' }}>
+      <View style={{flex: 9, backgroundColor: '#FFF'}}>
         <TopContent>
-          <CloseButton onPress={() => { onClose && onClose(); setOpen(false); }}>
+          <CloseButton
+            onPress={() => {
+              onClose && onClose();
+              setOpen(false);
+            }}>
             <Icon name="close" size={28} />
           </CloseButton>
 
           <TopText>
-            Por <Strong>onde </Strong> você quer <Strong>indicar</Strong> seu amigo?
+            Por <Strong>onde </Strong> você quer <Strong>indicar</Strong> seu
+            amigo?
           </TopText>
         </TopContent>
 
-        <OptionsContainer>
+        <OptionsContainer
+          style={{
+            borderTopWidth: StyleSheet.hairlineWidth,
+            borderTopColor: '#CCCCCC',
+            marginTop: 20,
+          }}>
           <OptionContainer>
             <Icon name="mail-outline" size={28} color="#7d7d7d" />
             <OptionText>E-MAIL</OptionText>
-            <EmailBadge><EmailBadgeText>10</EmailBadgeText></EmailBadge>
+            <EmailBadge>
+              <EmailBadgeText>10</EmailBadgeText>
+            </EmailBadge>
           </OptionContainer>
           <OptionContainer>
             <Brands name="facebook-messenger" size={28} color="#7d7d7d" />
@@ -68,13 +88,10 @@ export default function IndicateFriend({ onClose }) {
         <Footer>
           <InvitedText>6 indicaçoes enviadas</InvitedText>
           <ButtonBox>
-            <ButtonBoxText>
-              VER
-            </ButtonBoxText>
+            <ButtonBoxText>VER</ButtonBoxText>
           </ButtonBox>
         </Footer>
       </View>
     </Container>
-
   );
 }

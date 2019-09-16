@@ -13,7 +13,7 @@ export const Content = styled.View`
   max-height: 400px;
   justify-content: center;
   z-index: 5;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 export const Card = styled(Animated.View)`

@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
-import { StyleSheet, Animated } from 'react-native';
+import {StyleSheet, Animated} from 'react-native';
 
 export const Container = styled(Animated.ScrollView).attrs({})`
   margin: 0 30px;
-
 `;
 
 export const Code = styled.View`
@@ -16,6 +15,8 @@ export const Nav = styled.View`
   margin-top: 30px;
   border-top-width: ${StyleSheet.hairlineWidth}px;
   border-top-color: rgba(255, 255, 255, 0.8);
+  /* width: '90%'; */
+  flex: 1;
 `;
 
 export const NavItem = styled.View`

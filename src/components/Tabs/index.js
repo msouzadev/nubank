@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Container, TabsContainer, TabItem, TabText} from './styles';
 import IndicateFriend from '~/pages/IndicateFriend';
 import ToCharge from '~/pages/ToCharge';
 import Deposit from '~/pages/Deposit';
 import BlockCard from '~/pages/BlockCard';
 import Transfer from '~/pages/Transfer';
+// import Help from '~/pages/Help';
+import Pay from '~/pages/Pay';
 export default function Tabs({translateY, tabs = []}) {
   const [tabsNav, setTabs] = useState(tabs);
-  const [tabOpened, setTabOpen] = useState('to-charge');
+  const [tabOpened, setTabOpen] = useState('pay');
 
   function renderTabContent(tabOpened) {
     switch (tabOpened) {
@@ -22,6 +25,8 @@ export default function Tabs({translateY, tabs = []}) {
         return <BlockCard onClose={() => setTabOpen('')} />;
       case 'transfer':
         return <Transfer onClose={() => setTabOpen('')} />;
+      case 'pay':
+        return <Pay onClose={() => setTabOpen('')} />;
       default:
         return null;
     }
@@ -53,7 +58,12 @@ export default function Tabs({translateY, tabs = []}) {
                 setTabOpen(tab.name);
               }}
               key={tab.name}>
-              <Icon name={tab.icon} size={24} color="#FFF" />
+              {tab.name == 'pay' ? (
+                <FontAwesome name={tab.icon} size={24} color="#FFF" />
+              ) : (
+                <Icon name={tab.icon} size={24} color="#FFF" />
+              )}
+
               <TabText>{tab.label}</TabText>
             </TabItem>
           ))}

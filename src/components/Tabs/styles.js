@@ -17,7 +17,7 @@ export const TabsContainer = styled.ScrollView.attrs({
 export const TabItem = styled.TouchableOpacity`
   width: 100px;
   height: 100px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #9140a9;
   border-radius: 3px;
   margin-left: 10px;
   padding: 10px;

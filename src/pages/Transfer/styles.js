@@ -21,7 +21,7 @@ export const TopContent = styled.View`
 `;
 export const TopText = styled.Text`
   padding: 10px 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #767676;
 `;
@@ -30,7 +30,7 @@ export const Strong = styled.Text`
   font-weight: bold;
 `;
 
-export const OptionsContainer = styled.View`
+export const OptionsContainer = styled.FlatList`
   background: #ffffff;
   flex: 8;
 `;

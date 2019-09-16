@@ -60,7 +60,8 @@ export default function Deposit({onClose}) {
             </OptionDescription>
             <Icon
               name="keyboard-arrow-right"
-              style={{position: 'absolute', right: 15}}
+              style={{position: 'absolute', right: 15, color: '#7e7e7e'}}
+              size={28}
             />
           </OptionContainer>
           <OptionContainer>
@@ -73,7 +74,8 @@ export default function Deposit({onClose}) {
             </OptionDescription>
             <Icon
               name="keyboard-arrow-right"
-              style={{position: 'absolute', right: 15}}
+              style={{position: 'absolute', right: 15, color: '#7e7e7e'}}
+              size={28}
             />
           </OptionContainer>
           <OptionContainer>
@@ -86,7 +88,8 @@ export default function Deposit({onClose}) {
             </OptionDescription>
             <Icon
               name="keyboard-arrow-right"
-              style={{position: 'absolute', right: 15}}
+              style={{position: 'absolute', right: 15, color: '#7e7e7e'}}
+              size={28}
             />
           </OptionContainer>
         </OptionsContainer>

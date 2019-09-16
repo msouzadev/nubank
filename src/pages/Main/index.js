@@ -29,37 +29,36 @@ export default function Main() {
       icon: 'person-add',
       name: 'indicate-friend',
       label: 'Indicar amigos',
-      component: <IndicateFriend />,
     },
     {
       icon: 'chat-bubble-outline',
       name: 'to-charge',
       label: 'Cobrar',
-      component: <IndicateFriend />,
     },
     {
       icon: 'arrow-downward',
       name: 'deposit',
       label: 'Depositar',
-      component: <IndicateFriend />,
     },
     {
       icon: 'arrow-upward',
       name: 'transfer',
       label: 'Transferir',
-      component: <IndicateFriend />,
+    },
+    {
+      icon: 'barcode',
+      name: 'pay',
+      label: 'Pagar',
     },
     {
       icon: 'lock',
       name: 'block-card',
       label: 'Bloquear cartão',
-      component: <IndicateFriend />,
     },
     {
       icon: 'credit-card',
       name: 'virtual-card',
       label: 'Cartão virtual',
-      component: <IndicateFriend />,
     },
   ];
   const translateY = new Animated.Value(0);

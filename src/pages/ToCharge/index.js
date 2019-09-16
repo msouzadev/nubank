@@ -39,13 +39,13 @@ export default function IndicateFriend({onClose}) {
     );
   }, []);
 
-  useEffect(() => {
-    if (keyboarIsVisible == true) {
-      Keyboard.removeAllListeners('keyboardDidShow');
-    } else {
-      Keyboard.removeAllListeners('keyboardDidHide');
-    }
-  }, [keyboarIsVisible]);
+  // useEffect(() => {
+  //   if (keyboarIsVisible == true) {
+  //     Keyboard.removeAllListeners('keyboardDidShow');
+  //   } else {
+  //     Keyboard.removeAllListeners('keyboardDidHide');
+  //   }
+  // }, [keyboarIsVisible]);
   return (
     <Container
       animationType="slide"
@@ -107,7 +107,7 @@ export default function IndicateFriend({onClose}) {
             </UnspecifiedValueText>
           </UnspecifiedValue>
         </InputContainer>
-        <Footer style={{flex: keyboarIsVisible ? 3 : 1}}>
+        <Footer style={{flex: keyboarIsVisible ? 2 : 1}}>
           <ConfirmText>CONFIRMAR</ConfirmText>
         </Footer>
         {/* <KeyboardSpacer /> */}
