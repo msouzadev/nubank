@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Modal, Alert, View, Text, TouchableHighlight, TouchableWithoutFeedback,
-} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container, TabsContainer, TabItem, TabText,
@@ -9,11 +6,11 @@ import {
 import IndicateFriend from '~/pages/IndicateFriend';
 import ToCharge from '~/pages/ToCharge';
 import Deposit from '~/pages/Deposit';
+import BlockCard from '~/pages/BlockCard';
 
 export default function Tabs({ translateY, tabs = [] }) {
-  const [modalOpen, setOpen] = useState(false);
   const [tabsNav, setTabs] = useState(tabs);
-  const [tabOpened, setTabOpen] = useState('deposit');
+  const [tabOpened, setTabOpen] = useState('block-card');
 
   function renderTabContent(tabOpened) {
     switch (tabOpened) {
@@ -23,11 +20,12 @@ export default function Tabs({ translateY, tabs = [] }) {
         return <ToCharge onClose={() => setTabOpen('')} />;
       case 'deposit':
         return <Deposit onClose={() => setTabOpen('')} />;
+      case 'block-card':
+        return <BlockCard onClose={() => setTabOpen('')} />;
       default:
         return null;
     }
   }
-  console.log(tabsNav);
   return (
     <>
       {tabOpened ? renderTabContent(tabOpened) : null}
@@ -57,22 +55,7 @@ export default function Tabs({ translateY, tabs = [] }) {
             </TabItem>
           ))}
 
-          <TabItem>
-            <Icon name="chat-bubble-outline" size={24} color="#FFF" />
-            <TabText>Cobrar</TabText>
-          </TabItem>
-          <TabItem>
-            <Icon name="arrow-downward" size={24} color="#FFF" />
-            <TabText>Depositar</TabText>
-          </TabItem>
-          <TabItem>
-            <Icon name="arrow-upward" size={24} color="#FFF" />
-            <TabText>Transferir</TabText>
-          </TabItem>
-          <TabItem>
-            <Icon name="lock" size={24} color="#FFF" />
-            <TabText>Bloquear cartão</TabText>
-          </TabItem>
+
         </TabsContainer>
       </Container>
     </>

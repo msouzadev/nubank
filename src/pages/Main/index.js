@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
-  Animated, View, TouchableOpacity, Text,
+  Animated, View, TouchableOpacity, Text, Dimensions,
 } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import {
@@ -22,6 +22,7 @@ import IndicateFriend from '~/pages/IndicateFriend';
 
 export default function Main() {
   const [balanceVisible, setBalanceVisible] = useState(false);
+  const { width, height } = Dimensions.get('window');
   const handleChangeBalanceVisible = () => {
     setBalanceVisible(!balanceVisible);
   };
@@ -95,11 +96,11 @@ export default function Main() {
         offset = 0;
       }
       Animated.timing(translateY, {
-        toValue: opened ? 480 : 0,
+        toValue: opened ? height - 250 : 0,
         duration: 200,
         useNativeDriver: true,
       }).start(() => {
-        offset = opened ? 480 : 0;
+        offset = opened ? height - 250 : 0;
         translateY.setOffset(offset);
         translateY.setValue(0);
       });
@@ -120,8 +121,8 @@ export default function Main() {
               transform: [
                 {
                   translateY: translateY.interpolate({
-                    inputRange: [-250, 0, 480],
-                    outputRange: [-50, 0, 480],
+                    inputRange: [-250, 0, height - 250],
+                    outputRange: [-50, 0, height - 250],
                     extrapolate: 'clamp',
                   }),
                 },
