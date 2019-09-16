@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {Animated} from 'react-native';
-import {PanGestureHandler, State} from 'react-native-gesture-handler';
+import {
+  Animated, View, TouchableOpacity, Text,
+} from 'react-native';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import {
   Container,
   Content,
@@ -16,7 +18,57 @@ import {
 import Header from '~/components/Header';
 import Menu from '~/components/Menu';
 import Tabs from '~/components/Tabs';
+import IndicateFriend from '~/pages/IndicateFriend';
+
 export default function Main() {
+  const [balanceVisible, setBalanceVisible] = useState(false);
+  const handleChangeBalanceVisible = () => {
+    setBalanceVisible(!balanceVisible);
+  };
+  const tabs = [
+    {
+      icon: 'person-add',
+      name: 'indicate-friend',
+      label: 'Indicar amigos',
+      component: <IndicateFriend />,
+    },
+    {
+      icon: 'chat-bubble-outline',
+      name: 'to-charge',
+      label: 'Cobrar',
+      component: <IndicateFriend />,
+
+    },
+    {
+      icon: 'arrow-downward',
+      name: 'deposit',
+      label: 'Depositar',
+      component: <IndicateFriend />,
+
+    },
+    {
+      icon: 'arrow-upward',
+      name: 'transfer',
+      label: 'Transferir',
+      component: <IndicateFriend />,
+
+    },
+    {
+      icon: 'lock',
+      name: 'block-card',
+      label: 'Bloquear cartão',
+      component: <IndicateFriend />,
+
+    },
+    {
+      icon: 'credit-card',
+      name: 'virtual-card',
+      label: 'Cartão virtual',
+      component: <IndicateFriend />,
+
+    },
+
+  ];
   const translateY = new Animated.Value(0);
   let offset = 0;
   const animatedEvent = Animated.event(
@@ -27,12 +79,12 @@ export default function Main() {
         },
       },
     ],
-    {useNativeDriver: true},
+    { useNativeDriver: true },
   );
   function onHandlerStateChange(event) {
     if (event.nativeEvent.oldState === State.ACTIVE) {
       let opened = false;
-      const {translationY} = event.nativeEvent;
+      const { translationY } = event.nativeEvent;
       offset += translationY;
 
       if (translationY >= 100) {
@@ -43,11 +95,11 @@ export default function Main() {
         offset = 0;
       }
       Animated.timing(translateY, {
-        toValue: opened ? 380 : 0,
+        toValue: opened ? 480 : 0,
         duration: 200,
         useNativeDriver: true,
       }).start(() => {
-        offset = opened ? 380 : 0;
+        offset = opened ? 480 : 0;
         translateY.setOffset(offset);
         translateY.setValue(0);
       });
@@ -61,36 +113,45 @@ export default function Main() {
         <Menu translateY={translateY} />
         <PanGestureHandler
           onGestureEvent={animatedEvent}
-          onHandlerStateChange={onHandlerStateChange}>
+          onHandlerStateChange={onHandlerStateChange}
+        >
           <Card
             style={{
               transform: [
                 {
                   translateY: translateY.interpolate({
-                    inputRange: [-250, 0, 380],
-                    outputRange: [-50, 0, 380],
+                    inputRange: [-250, 0, 480],
+                    outputRange: [-50, 0, 480],
                     extrapolate: 'clamp',
                   }),
                 },
               ],
-            }}>
+              marginTop: 10,
+              flex: 90,
+            }}
+          >
             <CardHeader>
-              <Icon name="attach-money" size={28} color="#666" />
-              <Icon name="visibility-off" size={28} color="#666" />
+              <Icon name="attach-money" size={28} color="#767676" />
+              <Text style={{ fontSize: 20, color: '#767676' }}>NuConta</Text>
+              <TouchableOpacity onPress={handleChangeBalanceVisible} style={{ position: 'absolute', right: 15 }}>
+                <Icon name={`visibility${balanceVisible ? '-off' : ''}`} size={28} color="#767676" />
+              </TouchableOpacity>
             </CardHeader>
             <CardContent>
               <Title>Saldo disponível</Title>
-              <Description>R$ 7.500,95</Description>
+              <View style={{ backgroundColor: balanceVisible ? '#FFF' : '#f7f7f7' }}>
+                <Description style={{ color: balanceVisible ? '#333' : '#f7f7f7' }}>R$ 7.500,95</Description>
+              </View>
             </CardContent>
             <CardFooter>
               <Annottation>
-                Transferencia de R$ 50 recebida do Lucas Pereira hoje ás 60:00h
+                Transferencia de R$ 50 recebida do Lucas Pereira hoje ás 06:00h
               </Annottation>
             </CardFooter>
           </Card>
         </PanGestureHandler>
       </Content>
-      <Tabs translateY={translateY} />
+      <Tabs tabs={tabs} translateY={translateY} />
     </Container>
   );
 }
