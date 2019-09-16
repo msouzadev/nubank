@@ -27,7 +27,7 @@ font-weight:bold;
 `;
 
 export const InputContainer = styled.View`
-background:#f7f7f7;
+background:#ffffff;
 padding: 0 0 0 35px;
 
 `;
