@@ -25,7 +25,7 @@ import {
   UnspecifiedValue,
 } from './styles';
 
-export default function Pay({onClose}) {
+export default function Pay({onClose, navigation}) {
   const [open, setOpen] = useState(true);
   const [toCharge, setCharge] = useState(0);
 
@@ -37,18 +37,10 @@ export default function Pay({onClose}) {
   //   }
   // }, [keyboarIsVisible]);
   return (
-    <Container
-      animationType="slide"
-      transparent={open}
-      visible={open}
-      onRequestClose={() => {
-        onClose && onClose();
-        setOpen(false);
-      }}>
+    <>
       <CloseModalContainer
         onPress={() => {
-          onClose && onClose();
-          setOpen(false);
+          navigation.goBack();
         }}>
         <CloseModalView
           style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
@@ -57,8 +49,7 @@ export default function Pay({onClose}) {
       <View style={{flex: 9, backgroundColor: '#FFF'}}>
         <CloseButton
           onPress={() => {
-            onClose && onClose();
-            setOpen(false);
+            navigation.goBack();
           }}>
           <Icon name="close" size={50} color="#767676" />
         </CloseButton>
@@ -90,6 +81,6 @@ export default function Pay({onClose}) {
           </OptionContainer>
         </OptionsContainer>
       </View>
-    </Container>
+    </>
   );
 }

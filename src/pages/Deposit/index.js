@@ -18,21 +18,13 @@ import {
   OptionTitle,
 } from './styles';
 
-export default function Deposit({onClose}) {
+export default function Deposit({onClose, navigation}) {
   const [open, setOpen] = useState(true);
   return (
-    <Container
-      animationType="slide"
-      transparent={open}
-      visible={open}
-      onRequestClose={() => {
-        onClose && onClose();
-        setOpen(false);
-      }}>
+    <>
       <CloseModalContainer
         onPress={() => {
-          onClose && onClose();
-          setOpen(false);
+          navigation.goBack();
         }}>
         <CloseModalView
           style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
@@ -42,8 +34,7 @@ export default function Deposit({onClose}) {
         <TopContent>
           <CloseButton
             onPress={() => {
-              onClose && onClose();
-              setOpen(false);
+              navigation.goBack();
             }}>
             <Icon name="close" size={35} />
           </CloseButton>
@@ -94,6 +85,6 @@ export default function Deposit({onClose}) {
           </OptionContainer>
         </OptionsContainer>
       </View>
-    </Container>
+    </>
   );
 }

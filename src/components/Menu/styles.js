@@ -14,17 +14,17 @@ export const Code = styled.View`
 export const Nav = styled.View`
   margin-top: 30px;
   border-top-width: ${StyleSheet.hairlineWidth}px;
-  border-top-color: rgba(255, 255, 255, 0.8);
+  border-top-color: #a15cb6;
   /* width: '90%'; */
   flex: 1;
 `;
 
-export const NavItem = styled.View`
+export const NavItem = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   padding: 12px 0;
   border-bottom-width: ${StyleSheet.hairlineWidth}px;
-  border-bottom-color: rgba(255, 255, 255, 0.8);
+  border-bottom-color: #a15cb6;
 `;
 
 export const NavText = styled.Text`

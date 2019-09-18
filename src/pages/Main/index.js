@@ -18,7 +18,7 @@ import Menu from '~/components/Menu';
 import Tabs from '~/components/Tabs';
 import IndicateFriend from '~/pages/IndicateFriend';
 
-export default function Main() {
+export default function Main(props) {
   const [balanceVisible, setBalanceVisible] = useState(false);
   const {width, height} = Dimensions.get('window');
   const handleChangeBalanceVisible = () => {
@@ -29,36 +29,65 @@ export default function Main() {
       icon: 'person-add',
       name: 'indicate-friend',
       label: 'Indicar amigos',
+      onPress: () => props.navigation.navigate('IndicateFriend'),
     },
     {
       icon: 'chat-bubble-outline',
       name: 'to-charge',
       label: 'Cobrar',
+      onPress: () => props.navigation.navigate('ToCharge'),
     },
     {
       icon: 'arrow-downward',
       name: 'deposit',
       label: 'Depositar',
+      onPress: () => props.navigation.navigate('Deposit'),
     },
     {
       icon: 'arrow-upward',
       name: 'transfer',
       label: 'Transferir',
+      onPress: () => props.navigation.navigate('Transfer'),
     },
     {
       icon: 'barcode',
       name: 'pay',
       label: 'Pagar',
+      onPress: () => props.navigation.navigate('Pay'),
     },
     {
       icon: 'lock',
       name: 'block-card',
       label: 'Bloquear cartão',
+      onPress: () => props.navigation.navigate('BlockCard'),
     },
     {
       icon: 'credit-card',
       name: 'virtual-card',
       label: 'Cartão virtual',
+      onPress: () => props.navigation.navigate('IndicateFriend'),
+    },
+  ];
+  const menu = [
+    {
+      icon: 'help-outline',
+      label: 'Me ajuda',
+      onPress: () => props.navigation.navigate('Help'),
+    },
+    {
+      icon: 'person-outline',
+      label: 'Perfil',
+      onPress: () => props.navigation.navigate('IndicateFriend'),
+    },
+    {
+      icon: 'credit-card',
+      label: 'Configurar cartão',
+      onPress: () => props.navigation.navigate('IndicateFriend'),
+    },
+    {
+      icon: 'phone-iphone',
+      label: 'Configuração do app',
+      onPress: () => props.navigation.navigate('IndicateFriend'),
     },
   ];
   const translateY = new Animated.Value(0);
@@ -102,7 +131,7 @@ export default function Main() {
       <Header />
 
       <Content>
-        <Menu translateY={translateY} />
+        <Menu translateY={translateY} menu={menu} />
         <PanGestureHandler
           onGestureEvent={animatedEvent}
           onHandlerStateChange={onHandlerStateChange}>

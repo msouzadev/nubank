@@ -10,30 +10,8 @@ import Transfer from '~/pages/Transfer';
 // import Help from '~/pages/Help';
 import Pay from '~/pages/Pay';
 export default function Tabs({translateY, tabs = []}) {
-  const [tabsNav, setTabs] = useState(tabs);
-  const [tabOpened, setTabOpen] = useState('pay');
-
-  function renderTabContent(tabOpened) {
-    switch (tabOpened) {
-      case 'indicate-friend':
-        return <IndicateFriend onClose={() => setTabOpen('')} />;
-      case 'to-charge':
-        return <ToCharge onClose={() => setTabOpen('')} />;
-      case 'deposit':
-        return <Deposit onClose={() => setTabOpen('')} />;
-      case 'block-card':
-        return <BlockCard onClose={() => setTabOpen('')} />;
-      case 'transfer':
-        return <Transfer onClose={() => setTabOpen('')} />;
-      case 'pay':
-        return <Pay onClose={() => setTabOpen('')} />;
-      default:
-        return null;
-    }
-  }
   return (
     <>
-      {tabOpened ? renderTabContent(tabOpened) : null}
       <Container
         style={{
           transform: [
@@ -55,7 +33,7 @@ export default function Tabs({translateY, tabs = []}) {
           {tabs.map(tab => (
             <TabItem
               onPress={() => {
-                setTabOpen(tab.name);
+                tab.onPress();
               }}
               key={tab.name}>
               {tab.name == 'pay' ? (

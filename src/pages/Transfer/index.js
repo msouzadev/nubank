@@ -27,7 +27,7 @@ import {
   SearchInput,
 } from './styles';
 
-export default function Transfer({onClose}) {
+export default function Transfer({onClose, navigation}) {
   const [open, setOpen] = useState(true);
   const [contacts, setContacts] = useState([
     'Transferir para um novo contato',
@@ -56,18 +56,10 @@ export default function Transfer({onClose}) {
     );
   };
   return (
-    <Container
-      animationType="slide"
-      transparent={open}
-      visible={open}
-      onRequestClose={() => {
-        onClose && onClose();
-        setOpen(false);
-      }}>
+    <>
       <CloseModalContainer
         onPress={() => {
-          onClose && onClose();
-          setOpen(false);
+          navigation.goBack();
         }}>
         <CloseModalView
           style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
@@ -77,8 +69,7 @@ export default function Transfer({onClose}) {
         <TopContent>
           <CloseButton
             onPress={() => {
-              onClose && onClose();
-              setOpen(false);
+              navigation.goBack();
             }}>
             <Icon name="close" size={35} color="#767676" />
           </CloseButton>
@@ -127,6 +118,6 @@ export default function Transfer({onClose}) {
           )}
         />
       </View>
-    </Container>
+    </>
   );
 }

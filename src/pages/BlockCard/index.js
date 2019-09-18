@@ -19,7 +19,7 @@ import {
   BlockQuestion,
 } from './styles';
 
-export default function IndicateFriend({onClose}) {
+export default function IndicateFriend({onClose, navigation}) {
   const [open, setOpen] = useState(true);
   const [keyboarIsVisible, setKeyboarIsVisible] = useState(false);
   useEffect(() => {
@@ -45,18 +45,10 @@ export default function IndicateFriend({onClose}) {
     }
   }, [keyboarIsVisible]);
   return (
-    <Container
-      animationType="slide"
-      transparent={open}
-      visible={open}
-      onRequestClose={() => {
-        onClose && onClose();
-        setOpen(false);
-      }}>
+    <>
       <CloseModalContainer
         onPress={() => {
-          onClose && onClose();
-          setOpen(false);
+          navigation.goBack();
         }}>
         <CloseModalView
           style={{flex: 6, backgroundColor: '#222', opacity: 0.3}}
@@ -91,6 +83,6 @@ export default function IndicateFriend({onClose}) {
           <ConfirmText>CONFIRMAR</ConfirmText>
         </View>
       </Footer>
-    </Container>
+    </>
   );
 }

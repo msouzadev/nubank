@@ -5662,6 +5662,11 @@ react-native-safe-area-view@^0.14.1, react-native-safe-area-view@^0.14.6:
   dependencies:
     debounce "^1.2.0"
 
+react-native-skeleton-placeholder@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-1.0.3.tgz#bcad48066cd046d8bed73c60446b9bb1de312111"
+  integrity sha512-fuuGWUz7e2TTl2p4QFNmWqo60QuS/E4CqXK54UQ2aoasAIWBKkpG4SE9aOaNVveovd1sfJMpXpcKMCNvqrx9XA==
+
 react-native-svg@^9.9.3:
   version "9.9.3"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.9.3.tgz#5dab1a44b20b13a3f35245a286f30882b9611d66"
@@ -5722,6 +5727,13 @@ react-native@0.60.5:
     scheduler "0.14.0"
     stacktrace-parser "^0.1.3"
     whatwg-fetch "^3.0.0"
+
+react-navigation-stack@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.8.0.tgz#52cb159371b64d20780a72ce43e9620adec2f2a0"
+  integrity sha512-J8ezJlZRxoXuxVH7Y9EOBBluoOpjgrFN0HBKMJyi8ctFEVDsEjjbsffhk6ihOeZ2um7dPYErzeD7sLjx8YQDzw==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-navigation-tabs@^2.5.2:
   version "2.5.2"

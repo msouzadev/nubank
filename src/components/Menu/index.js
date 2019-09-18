@@ -11,7 +11,8 @@ import {
   SignoutButtonText,
   SignoutButton,
 } from './styles';
-export default function Menu({translateY}) {
+export default function Menu({translateY, navigation, menu = []}) {
+  console.log(navigation);
   return (
     <Container
       style={{
@@ -30,22 +31,13 @@ export default function Menu({translateY}) {
         />
       </Code>
       <Nav>
-        <NavItem>
-          <Icon name="help-outline" size={20} color="#FFF" />
-          <NavText>Me ajuda</NavText>
-        </NavItem>
-        <NavItem>
-          <Icon name="person-outline" size={20} color="#FFF" />
-          <NavText>Me ajuda</NavText>
-        </NavItem>
-        <NavItem>
-          <Icon name="credit-card" size={20} color="#FFF" />
-          <NavText>Configurar cartão</NavText>
-        </NavItem>
-        <NavItem>
-          <Icon name="phone-iphone" size={20} color="#FFF" />
-          <NavText>Configuração do app</NavText>
-        </NavItem>
+        {menu.map(item => (
+          <NavItem onPress={item.onPress} key={item.label}>
+            <Icon name={item.icon} size={20} color="#FFF" />
+            <NavText style={{flex: 9}}>{item.label}</NavText>
+            <Icon name="keyboard-arrow-right" size={18} color="#FFF" />
+          </NavItem>
+        ))}
       </Nav>
 
       <SignoutButton onPress={() => {}}>

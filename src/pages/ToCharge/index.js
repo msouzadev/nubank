@@ -20,7 +20,7 @@ import {
   UnspecifiedValue,
 } from './styles';
 
-export default function IndicateFriend({onClose}) {
+export default function IndicateFriend({onClose, navigation}) {
   const [open, setOpen] = useState(true);
   const [toCharge, setCharge] = useState(0);
   const [keyboarIsVisible, setKeyboarIsVisible] = useState(false);
@@ -47,19 +47,8 @@ export default function IndicateFriend({onClose}) {
   //   }
   // }, [keyboarIsVisible]);
   return (
-    <Container
-      animationType="slide"
-      transparent={open}
-      visible={open}
-      onRequestClose={() => {
-        onClose && onClose();
-        setOpen(false);
-      }}>
-      <CloseModalContainer
-        onPress={() => {
-          onClose && onClose();
-          setOpen(false);
-        }}>
+    <>
+      <CloseModalContainer onPress={() => navigation.goBack()}>
         <CloseModalView
           style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
         />
@@ -68,8 +57,7 @@ export default function IndicateFriend({onClose}) {
         <TopContent>
           <CloseButton
             onPress={() => {
-              onClose && onClose();
-              setOpen(false);
+              navigation.goBack();
             }}>
             <Icon name="close" size={28} />
           </CloseButton>
@@ -112,6 +100,6 @@ export default function IndicateFriend({onClose}) {
         </Footer>
         {/* <KeyboardSpacer /> */}
       </View>
-    </Container>
+    </>
   );
 }
