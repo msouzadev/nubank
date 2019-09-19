@@ -82,7 +82,7 @@ export default function Main(props) {
     {
       icon: 'credit-card',
       label: 'Configurar cartão',
-      onPress: () => props.navigation.navigate('IndicateFriend'),
+      onPress: () => props.navigation.navigate('CardConfig'),
     },
     {
       icon: 'phone-iphone',

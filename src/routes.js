@@ -14,6 +14,8 @@ import BlockCard from '~/pages/BlockCard';
 import SearchModal from '~/pages/SearchModal';
 import Profile from '~/pages/Profile';
 import AppConfig from '~/pages/AppConfig';
+import AccountConfig from '~/pages/AccountConfig';
+import CardConfig from '~/pages/CardConfig';
 export const AppNavigator = createStackNavigator(
   {
     Main,
@@ -27,12 +29,14 @@ export const AppNavigator = createStackNavigator(
     SearchModal,
     Profile,
     AppConfig,
+    AccountConfig,
+    CardConfig,
   },
   {
     transparentCard: true,
     headerMode: 'none',
     mode: 'modal',
-    initialRouteName: 'Main',
+    initialRouteName: 'AccountConfig',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 750,
