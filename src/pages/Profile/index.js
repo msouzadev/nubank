@@ -70,7 +70,9 @@ export default function Profile({navigation}) {
           paddingTop: Platform.OS == 'ios' ? getStatusBarHeight() : 10,
         }}>
         <TopContent>
-          <Icon name="arrow-back" size={30} />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon name="arrow-back" size={30} />
+          </TouchableOpacity>
           <ModalTitle>PERFIL</ModalTitle>
         </TopContent>
 
