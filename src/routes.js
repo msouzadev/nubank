@@ -13,6 +13,7 @@ import Deposit from '~/pages/Deposit';
 import BlockCard from '~/pages/BlockCard';
 import SearchModal from '~/pages/SearchModal';
 import Profile from '~/pages/Profile';
+import AppConfig from '~/pages/AppConfig';
 export const AppNavigator = createStackNavigator(
   {
     Main,
@@ -25,6 +26,7 @@ export const AppNavigator = createStackNavigator(
     BlockCard,
     SearchModal,
     Profile,
+    AppConfig,
   },
   {
     transparentCard: true,

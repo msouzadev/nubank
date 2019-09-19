@@ -87,7 +87,7 @@ export default function Main(props) {
     {
       icon: 'phone-iphone',
       label: 'Configuração do app',
-      onPress: () => props.navigation.navigate('IndicateFriend'),
+      onPress: () => props.navigation.navigate('AppConfig'),
     },
   ];
   const translateY = new Animated.Value(0);
