@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, SafeAreaView } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 import {
   Container,
@@ -31,7 +32,7 @@ import {
   Skeleton,
 } from './styles';
 
-export default function Transfer({onClose, navigation}) {
+export default function Transfer({ onClose, navigation }) {
   const [showSkeleton, setShowSkeleton] = useState(true);
   const [topics, setTopics] = useState([
     {
@@ -103,7 +104,7 @@ export default function Transfer({onClose, navigation}) {
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: '#FFF'}}>
+    <View style={{ flex: 1, backgroundColor: '#FFF', paddingTop: getStatusBarHeight() }}>
       <TopContent>
         <CloseButton
           onPress={() => {
@@ -117,7 +118,7 @@ export default function Transfer({onClose, navigation}) {
       <SearchContainer>
         <SearchInput
           placeholder="Qual é sua dúvida?"
-          style={{flex: 9}}
+          style={{ flex: 9 }}
           onChangeText={handleSearch}
         />
         <Icon
@@ -133,14 +134,15 @@ export default function Transfer({onClose, navigation}) {
       </SearchContainer>
       {showSkeleton &&
         topics.map((item, index) => (
-          <View key={index} style={{marginTop: 12}}>
+          <View key={index} style={{ marginTop: 12 }}>
             <SkeletonPlaceholder>
               <View
-                style={{flexDirection: 'row', marginLeft: 20, marginRight: 20}}>
-                <View style={{flexDirection: 'column'}}>
-                  <View style={{width: 100, height: 20}}></View>
-                  <View style={{width: 300, height: 20, marginTop: 5}}></View>
+                style={{ flexDirection: 'row', marginLeft: 20, marginRight: 20 }}>
+                <View style={{ flexDirection: 'column', flex: 9 }}>
+                  <View style={{ width: 100, height: 20 }}></View>
+                  <View style={{ width: 300, height: 20, marginTop: 5 }}></View>
                 </View>
+                <View style={{ width: 10, height: 6 }}></View>
               </View>
             </SkeletonPlaceholder>
           </View>
@@ -152,7 +154,7 @@ export default function Transfer({onClose, navigation}) {
             marginTop: 20,
           }}
           keyExtractor={item => item.title}
-          renderItem={({item, index}) => (
+          renderItem={({ item, index }) => (
             <OptionContainer
               style={{
                 backgroundColor: '#FFFFFF',
