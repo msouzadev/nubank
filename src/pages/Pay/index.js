@@ -8,34 +8,13 @@ import {
   OptionText,
   OptionDescription,
   OptionTitle,
-} from './styles';
-import {View} from 'react-native';
-import {
-  Container,
   CloseModalContainer,
   CloseModalView,
   CloseButton,
-  TopContent,
-  TopText,
-  Strong,
-  InputContainer,
-  Footer,
-  ConfirmText,
-  UnspecifiedValueText,
-  UnspecifiedValue,
 } from './styles';
+import {View} from 'react-native';
 
-export default function Pay({onClose, navigation}) {
-  const [open, setOpen] = useState(true);
-  const [toCharge, setCharge] = useState(0);
-
-  // useEffect(() => {
-  //   if (keyboarIsVisible == true) {
-  //     Keyboard.removeAllListeners('keyboardDidShow');
-  //   } else {
-  //     Keyboard.removeAllListeners('keyboardDidHide');
-  //   }
-  // }, [keyboarIsVisible]);
+export default function Pay({navigation}) {
   return (
     <>
       <CloseModalContainer

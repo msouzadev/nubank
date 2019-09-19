@@ -61,7 +61,6 @@ export const Topic = styled.View`
 `;
 
 export const Footer = styled.View`
-  flex: 1;
   background: #fff;
   flex-direction: row;
   justify-content: space-between;

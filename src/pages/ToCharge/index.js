@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {View, Keyboard} from 'react-native';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {TextInputMask} from 'react-native-masked-text';
 
 import {
-  Container,
   CloseModalContainer,
   CloseModalView,
   CloseButton,
@@ -21,7 +19,6 @@ import {
 } from './styles';
 
 export default function IndicateFriend({onClose, navigation}) {
-  const [open, setOpen] = useState(true);
   const [toCharge, setCharge] = useState(0);
   const [keyboarIsVisible, setKeyboarIsVisible] = useState(false);
   useEffect(() => {
@@ -38,14 +35,6 @@ export default function IndicateFriend({onClose, navigation}) {
       },
     );
   }, []);
-
-  // useEffect(() => {
-  //   if (keyboarIsVisible == true) {
-  //     Keyboard.removeAllListeners('keyboardDidShow');
-  //   } else {
-  //     Keyboard.removeAllListeners('keyboardDidHide');
-  //   }
-  // }, [keyboarIsVisible]);
   return (
     <>
       <CloseModalContainer onPress={() => navigation.goBack()}>
@@ -68,7 +57,7 @@ export default function IndicateFriend({onClose, navigation}) {
         </TopContent>
         <InputContainer style={{flex: 9}}>
           <TextInputMask
-            maxLength={10}
+            maxLength={16}
             style={{
               // paddingLeft: 35,
               height: 100,

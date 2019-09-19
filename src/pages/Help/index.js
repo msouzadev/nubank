@@ -196,7 +196,7 @@ export default function Help({onClose, navigation}) {
       )}
 
       {!showSkeleton && (
-        <Footer>
+        <Footer style={{flex: showRating ? 1.5 : 1}}>
           <FooterButton
             style={{
               height: '100%',

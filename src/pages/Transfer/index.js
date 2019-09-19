@@ -3,32 +3,22 @@ import {View} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Brands from 'react-native-vector-icons/FontAwesome5';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {StyleSheet} from 'react-native';
 import {
-  Container,
   CloseModalContainer,
   CloseModalView,
   CloseButton,
   TopContent,
   TopText,
-  Strong,
   OptionsContainer,
   OptionContainer,
   OptionText,
-  Footer,
-  InvitedText,
-  ButtonBox,
-  ButtonBoxText,
-  EmailBadge,
-  EmailBadgeText,
   SearchContainer,
   SearchInput,
 } from './styles';
 
-export default function Transfer({onClose, navigation}) {
-  const [open, setOpen] = useState(true);
+export default function Transfer({navigation}) {
   const [contacts, setContacts] = useState([
     'Transferir para um novo contato',
     'Matheus Santos de Souza (Você)',
@@ -37,8 +27,10 @@ export default function Transfer({onClose, navigation}) {
     'Raimundo Sales de Souza',
     'João Vitor de Oliveira',
   ]);
+  const [showIcon, setShowIcon] = useState(true);
   const handleSearch = text => {
     if (!text) {
+      setShowIcon(true);
       setContacts([
         'Transferir para um novo contato',
         'Matheus Santos de Souza (Você)',
@@ -49,6 +41,7 @@ export default function Transfer({onClose, navigation}) {
       ]);
       return;
     }
+    setShowIcon(false);
     setContacts(
       contacts.filter(contact =>
         contact.toLowerCase().startsWith(text.toLowerCase()),
@@ -106,9 +99,9 @@ export default function Transfer({onClose, navigation}) {
             <OptionContainer
               key={item}
               style={{
-                backgroundColor: index >= 1 ? '#f7f7f7' : '#FFFFFF',
+                backgroundColor: index >= 1 && showIcon ? '#f7f7f7' : '#FFFFFF',
               }}>
-              {index == 0 && (
+              {index == 0 && showIcon && (
                 <AntDesign name="adduser" size={28} color="#8d3dc8" />
               )}
               <OptionText>{item}</OptionText>

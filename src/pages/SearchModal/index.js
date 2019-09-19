@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {View, SafeAreaView} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 import {
@@ -15,8 +14,6 @@ import {
   Topic,
   TopicTitle,
   TopicDescription,
-  FooterText,
-  FooterButton,
 } from './styles';
 
 export default function SearchModal({navigation}) {

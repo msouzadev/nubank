@@ -1,8 +1,5 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
-export const Container = styled.Modal`
-  background-color: #fff;
-`;
 
 export const CloseModalView = styled.View``;
 export const CloseModalContainer = styled.TouchableWithoutFeedback``;
@@ -26,10 +23,6 @@ export const TopText = styled.Text`
   color: #767676;
 `;
 
-export const Strong = styled.Text`
-  font-weight: bold;
-`;
-
 export const OptionsContainer = styled.FlatList`
   background: #ffffff;
   flex: 8;
@@ -47,47 +40,6 @@ export const OptionText = styled.Text`
   color: #222222;
   font-size: 18;
   flex: 9;
-`;
-
-export const EmailBadge = styled.View`
-  background: #8d3dc8;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  right: 15;
-  position: absolute;
-`;
-export const EmailBadgeText = styled.Text`
-  color: #fff;
-`;
-export const Footer = styled.View`
-  flex: 2;
-  background: #fff;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-`;
-
-export const InvitedText = styled.Text`
-  font-size: 16px;
-  color: #222;
-  font-size: 19px;
-`;
-
-export const ButtonBox = styled.TouchableOpacity`
-  border: 1px #8d3dc8;
-  height: 35px;
-  width: 70px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5;
-`;
-export const ButtonBoxText = styled.Text`
-  color: #8d3dc8;
 `;
 
 export const SearchContainer = styled.View`
