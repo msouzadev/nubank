@@ -77,7 +77,7 @@ export default function Main(props) {
     {
       icon: 'person-outline',
       label: 'Perfil',
-      onPress: () => props.navigation.navigate('IndicateFriend'),
+      onPress: () => props.navigation.navigate('Profile'),
     },
     {
       icon: 'credit-card',

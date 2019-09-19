@@ -74,29 +74,12 @@ export default function Help({onClose, navigation}) {
       name: 'Perfeito',
     },
   ];
+
   useEffect(() => {
     setTimeout(() => {
       setShowSkeleton(false);
     }, 2000);
   }, []);
-  const handleSearch = text => {
-    if (!text) {
-      setTopics([
-        'Transferir para um novo contato',
-        'Matheus Santos de Souza (Você)',
-        'Eliezer Marques da Silva Neto',
-        'Lucas Pereira Santos',
-        'Raimundo Sales de Souza',
-        'João Vitor de Oliveira',
-      ]);
-      return;
-    }
-    setTopics(
-      contacts.filter(contact =>
-        contact.toLowerCase().startsWith(text.toLowerCase()),
-      ),
-    );
-  };
   return (
     <View
       style={{
@@ -109,7 +92,7 @@ export default function Help({onClose, navigation}) {
           onPress={() => {
             navigation.goBack();
           }}>
-          <Icon name="close" size={35} color="#767676" />
+          <Icon name="close" size={35} color="#8a05be" />
         </CloseButton>
 
         <TopText>ME AJUDA</TopText>
@@ -117,14 +100,15 @@ export default function Help({onClose, navigation}) {
       <SearchContainer
         onPress={() => {
           navigation.navigate('SearchModal');
-          setShowRating(true);
+          setTimeout(() => {
+            setShowRating(true);
+          }, 2000);
         }}>
         <SearchInput
           placeholderTextColor="#767676"
           editable={false}
           placeholder="Qual é a  sua dúvida?"
           style={{flex: 9}}
-          onChangeText={handleSearch}
         />
         <Icon
           name="search"

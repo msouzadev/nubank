@@ -10,7 +10,7 @@ export default function Header() {
         <Logo source={logo} />
         <Title>Matheus</Title>
       </Top>
-      <Icon name="keyboard-arrow-down" size={20} color="#FFF" />
+      <Icon name="keyboard-arrow-down" size={20} color="#b177c2" />
     </Container>
   );
 }
