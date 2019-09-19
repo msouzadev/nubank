@@ -22,15 +22,38 @@ export default function Profile({navigation}) {
   const [topics, setTopics] = useState([
     {
       id: 1,
-      title: 'Historico de localização',
-      description: '',
+      title: 'Vencimendo',
+      description: '12/10',
       checked: false,
+      switchable: false,
     },
     {
       id: 2,
-      title: 'Proteção do app',
-      description: 'Solicitar senha de desbloqueio do aparelho',
+      title: 'Ajustar Limite',
+      description: 'R$ 9.670,00',
       checked: false,
+      switchable: false,
+    },
+    {
+      id: 3,
+      title: 'Informações sobre seus juros',
+      description: '',
+      checked: false,
+      switchable: false,
+    },
+    {
+      id: 4,
+      title: 'Aviso viagem',
+      description: '',
+      checked: false,
+      switchable: true,
+    },
+    {
+      id: 5,
+      title: 'Compras por aproximação (contactless)',
+      description: 'Desative para não permitir compras por aproximação',
+      checked: false,
+      switchable: true,
     },
   ]);
   const handleCheck = option => {
@@ -87,24 +110,30 @@ export default function Profile({navigation}) {
                   alignItems: 'center',
                   flexWrap: 'wrap',
                 }}>
-                <TopicTitle>{item.title}</TopicTitle>
+                <TopicTitle style={{flexWrap: 'wrap'}}>{item.title}</TopicTitle>
                 <TopicDescription>{item.description}</TopicDescription>
               </View>
 
               <View style={{flex: 1, alignItems: 'flex-end'}}>
-                <Switch
-                  onValueChange={() => {
-                    setTopics(
-                      topics.map(topic => {
-                        topic.checked =
-                          topic.id == item.id ? !topic.checked : topic.checked;
-                        return topic;
-                      }),
-                    );
-                  }}
-                  value={item.checked}
-                  thumbColor={item.checked ? '#82269e' : '#FFF'}
-                />
+                {item.switchable ? (
+                  <Switch
+                    onValueChange={() => {
+                      setTopics(
+                        topics.map(topic => {
+                          topic.checked =
+                            topic.id == item.id
+                              ? !topic.checked
+                              : topic.checked;
+                          return topic;
+                        }),
+                      );
+                    }}
+                    value={item.checked}
+                    thumbColor={item.checked ? '#82269e' : '#FFF'}
+                  />
+                ) : (
+                  <Icon name="keyboard-arrow-right" size={18} color="#8d8d8d" />
+                )}
               </View>
             </OptionContainer>
           )}

@@ -36,7 +36,7 @@ export const AppNavigator = createStackNavigator(
     transparentCard: true,
     headerMode: 'none',
     mode: 'modal',
-    initialRouteName: 'AccountConfig',
+    initialRouteName: 'CardConfig',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 750,

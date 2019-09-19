@@ -85,6 +85,11 @@ export default function Main(props) {
       onPress: () => props.navigation.navigate('CardConfig'),
     },
     {
+      icon: 'attach-money',
+      label: 'Configurar NuConta',
+      onPress: () => props.navigation.navigate('AccountConfig'),
+    },
+    {
       icon: 'phone-iphone',
       label: 'Configuração do app',
       onPress: () => props.navigation.navigate('AppConfig'),
