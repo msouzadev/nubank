@@ -68,6 +68,7 @@ export default function IndicateFriend({onClose, navigation}) {
         </TopContent>
         <InputContainer style={{flex: 9}}>
           <TextInputMask
+            maxLength={10}
             style={{
               // paddingLeft: 35,
               height: 100,

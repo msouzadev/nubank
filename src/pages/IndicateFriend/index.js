@@ -33,7 +33,7 @@ export default function IndicateFriend({onClose, navigation}) {
           navigation.goBack();
         }}>
         <CloseModalView
-          style={{flex: 1, backgroundColor: '#222', opacity: 0.3}}
+          style={{flex: 1, backgroundColor: '#1a0820', opacity: 0.3}}
         />
       </CloseModalContainer>
       <View style={{flex: 9, backgroundColor: '#FFF'}}>

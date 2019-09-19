@@ -28,7 +28,7 @@ export const AppNavigator = createStackNavigator(
     transparentCard: true,
     headerMode: 'none',
     mode: 'modal',
-    initialRouteName: 'Help',
+    initialRouteName: 'Main',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 750,
@@ -48,7 +48,7 @@ export const AppNavigator = createStackNavigator(
 
         const opacity = position.interpolate({
           inputRange: [thisSceneIndex - 1, thisSceneIndex, thisSceneIndex + 1],
-          outputRange: [1, 1, 0.5],
+          outputRange: [1, 1, 0.9],
         });
 
         return {opacity, transform: [{translateY}]};

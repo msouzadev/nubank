@@ -43,7 +43,7 @@ export const OptionContainer = styled.TouchableOpacity`
 
 export const TopicTitle = styled.Text`
   color: #222222;
-  font-size: 20;
+  font-size: 18;
   font-weight: bold;
 `;
 export const TopicDescription = styled.Text`
@@ -119,8 +119,8 @@ export const RateOptions = styled.View`
 `;
 
 export const RateOption = styled.View`
-  height: 80;
-  width: 80px;
+  height: 60;
+  width: 60px;
   border-radius: 80;
   border-color: #cccccc;
   border-width: 1;
