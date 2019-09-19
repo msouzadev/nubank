@@ -11,7 +11,7 @@ import ToCharge from '~/pages/ToCharge';
 import Transfer from '~/pages/Transfer';
 import Deposit from '~/pages/Deposit';
 import BlockCard from '~/pages/BlockCard';
-
+import SearchModal from '~/pages/SearchModal';
 export const AppNavigator = createStackNavigator(
   {
     Main,
@@ -22,12 +22,13 @@ export const AppNavigator = createStackNavigator(
     Deposit,
     Transfer,
     BlockCard,
+    SearchModal,
   },
   {
     transparentCard: true,
     headerMode: 'none',
     mode: 'modal',
-    initialRouteName: 'Main',
+    initialRouteName: 'Help',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 750,

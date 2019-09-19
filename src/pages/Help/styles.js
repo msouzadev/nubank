@@ -1,13 +1,5 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-export const Container = styled.Modal`
-  background-color: #fff;
-`;
-
-export const Skeleton = styled(SkeletonPlaceholder)``;
-export const CloseModalView = styled.View``;
-export const CloseModalContainer = styled.TouchableWithoutFeedback``;
 
 export const CloseButtonText = styled.Text`
   font-size: 30px;
@@ -36,14 +28,10 @@ export const TopText = styled.Text`
   text-align: center;
 `;
 
-export const Strong = styled.Text`
-  font-weight: bold;
-`;
-
 export const OptionsContainer = styled.FlatList`
   background: #ffffff;
   padding: 0 15px;
-  flex: 8;
+  flex: 7;
 `;
 export const OptionContainer = styled.TouchableOpacity`
   align-items: center;
@@ -83,25 +71,7 @@ export const Footer = styled.View`
   border-top-color: #e4e4e4;
 `;
 
-export const InvitedText = styled.Text`
-  font-size: 16px;
-  color: #222;
-  font-size: 19px;
-`;
-
-export const ButtonBox = styled.TouchableOpacity`
-  border: 1px #8d3dc8;
-  height: 35px;
-  width: 70px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5;
-`;
-export const ButtonBoxText = styled.Text`
-  color: #8d3dc8;
-`;
-
-export const SearchContainer = styled.View`
+export const SearchContainer = styled.TouchableOpacity`
   border-color: #cdcdcd;
   border-radius: 5px;
   border-width: 1px;
@@ -127,4 +97,42 @@ export const FooterButton = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
+`;
+
+export const RatingContainer = styled.View`
+  flex: 3;
+  padding: 0 20px;
+  margin-top: 40;
+  height: 100%;
+`;
+RateTitle;
+
+export const RatintTitle = styled.Text`
+  font-weight: bold;
+  font-size: 18;
+  padding: 0 15px;
+`;
+export const RateOptions = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 15px;
+`;
+
+export const RateOption = styled.View`
+  height: 80;
+  width: 80px;
+  border-radius: 80;
+  border-color: #cccccc;
+  border-width: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const RateTitle = styled.Text`
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10;
+  color: #8a05be;
+  font-size: 14;
 `;
