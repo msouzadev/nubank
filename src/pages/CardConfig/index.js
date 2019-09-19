@@ -107,10 +107,12 @@ export default function Profile({navigation}) {
                   flex: 9,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  alignItems: 'center',
+                  // alignItems: 'center',
                   flexWrap: 'wrap',
                 }}>
-                <TopicTitle style={{flexWrap: 'wrap'}}>{item.title}</TopicTitle>
+                <TopicTitle style={{textAlign: 'left'}}>
+                  {item.title}
+                </TopicTitle>
                 <TopicDescription>{item.description}</TopicDescription>
               </View>
 
