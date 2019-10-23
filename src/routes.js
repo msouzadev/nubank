@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {Button, Text, View, Easing, Animated} from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { Easing, Animated } from 'react-native';
 import Main from '~/pages/Main';
 import IndicateFriend from '~/pages/IndicateFriend';
 import Help from '~/pages/Help';
@@ -45,7 +45,7 @@ export const AppNavigator = createStackNavigator(
         useNativeDriver: true,
       },
       screenInterpolator: sceneProps => {
-        const {layout, position, scene} = sceneProps;
+        const { layout, position, scene } = sceneProps;
         const thisSceneIndex = scene.index;
 
         const height = layout.initHeight;
@@ -59,11 +59,11 @@ export const AppNavigator = createStackNavigator(
           outputRange: [1, 1, 0.9],
         });
 
-        return {opacity, transform: [{translateY}]};
+        return { opacity, transform: [{ translateY }] };
       },
     }),
   },
 );
-const Routes = createAppContainer(createSwitchNavigator({AppNavigator}));
+const Routes = createAppContainer(createSwitchNavigator({ AppNavigator }));
 
 export default Routes;
